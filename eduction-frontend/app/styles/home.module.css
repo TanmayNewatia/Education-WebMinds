@@ -1,0 +1,21 @@
+.homehero_container {
+    background: url("../../public/homehero.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+.hero_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.heroscroller {
+    position: absolute;
+    bottom: 150px;
+    right: 50px;
+}
