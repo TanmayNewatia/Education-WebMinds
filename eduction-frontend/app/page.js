@@ -1,12 +1,12 @@
+'use client'
+
 import Image from "next/image";
 import img from "../public/signup.svg";
-import Navbar from "./components/home/Navbar";
-import HeroSection from "./components/home/HeroSection";
+import Navbar from "./components/home/nav/Navbar";
+import HomePage from "./components/home/HomePage";
+
 export default function Home() {
   return (
-    <>
-      {/* <Image src={img} alt="Sign up" width={"100vw"} height={"100vh"} /> */}
-      <HeroSection />
-    </>
+    <HomePage />
   );
 }

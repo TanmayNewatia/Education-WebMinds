@@ -1,6 +1,6 @@
 import homestyles from '../../styles/home.module.css';
-import Navbar from './Navbar';
-import NavbarButton from './NavbarButton';
+import Navbar from './nav/Navbar';
+import NavbarButton from './nav/NavbarButton';
 import Link from 'next/link';
 import { IoArrowDownCircleOutline } from "react-icons/io5";
 

@@ -19,3 +19,18 @@
     bottom: 150px;
     right: 50px;
 }
+
+.footer_container {
+    width: 95vw;
+    margin: 20px auto;
+    border-radius: 30px;
+    height: 80vh;
+    background: url("../../public/homehero.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+

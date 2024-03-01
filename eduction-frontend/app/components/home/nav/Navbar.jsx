@@ -1,7 +1,7 @@
 import Image from "next/image";
 import NavbarButton from "./NavbarButton";
 import { IoPerson } from "react-icons/io5";
-import logo from "../../../public/logo.svg";
+import logo from "../../../../public/logo.svg";
 
 export default function Navbar() {
     const navButtons = ["Home", "Courses", "Discussion", "Contact"];
