@@ -7,8 +7,7 @@ import { IoArrowDownCircleOutline } from "react-icons/io5";
 export default function HeroSection() {
     return (
         <div className={homestyles.homehero_container}>
-            <div className="w-full text-white flex h-[95%] flex-col justify-between">
-                <Navbar />
+            <div className="w-full text-white flex h-[95%] flex-col justify-end">
                 <div className={homestyles.hero_content}>
                     <p className="text-4xl">Online</p>
                     <h1 className={"text-[300px] leading-none !m-0 !p-0"}>Eduction</h1>

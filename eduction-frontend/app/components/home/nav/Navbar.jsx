@@ -1,9 +1,14 @@
+'use client'
+
 import Image from "next/image";
 import NavbarButton from "./NavbarButton";
 import { IoPerson } from "react-icons/io5";
 import logo from "../../../../public/logo.svg";
+import { UserAuth } from "@/app/context/AuthContext";
 
 export default function Navbar() {
+    const {user} = UserAuth();
+    console.log(user);
     const navButtons = ["Home", "Courses", "Discussion", "Contact"];
     const navList = navButtons.map((button, key) => {
         return (
@@ -11,8 +16,8 @@ export default function Navbar() {
         )
     });
     return (
-        <header className="flex justify-between w-11/12 mx-auto h-[100px] items-center text-lg text-white">
-            <div className="fixed t-0 flex justify-between w-11/12 mx-auto items-center text-lg text-white">
+        <header className="fixed t-0 flex justify-between w-full mx-auto h-[100px] items-center text-lg text-white z-50">
+            <div className="flex justify-between w-11/12 mx-auto items-center text-lg text-white">
                 <div className="flex w-8/12">
                     <Image src={logo} alt="Logo" width={"50"} height={"50"} />
                     {navList}

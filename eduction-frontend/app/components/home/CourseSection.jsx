@@ -3,7 +3,7 @@ import ProgressSection from "./progress/ProgressSection";
 
 export default function CourseSection() {
     return (
-        <div className="h-screen w-screen">
+        <div className="course h-screen w-screen">
             <ProgressSection />
             <Carousel height="45"/>
         </div>

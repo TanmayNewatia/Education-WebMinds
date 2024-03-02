@@ -1,6 +1,10 @@
 import { Aladin } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./components/providers/Providers";
+import Navbar from "./components/home/nav/Navbar";
+import Footer from "./components/home/nav/Footer";
+import { AuthContextProvider } from "./context/AuthContext";
+
 const aladin = Aladin({ subsets: ["latin"], weight: '400' });
 
 export const metadata = {
@@ -13,7 +17,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={aladin.className}>
         <Providers>
-          {children}
+          <AuthContextProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </AuthContextProvider>
         </Providers>
       </body>
     </html>

@@ -2,14 +2,10 @@
 
 import Image from "next/image";
 import img from "../../public/signup.svg";
-import Navbar from "../components/home/nav/Navbar";
-import HomePage from "../components/home/HomePage";
+import SignUp from "../components/authentication/SignUp";
 
-export default function Profile() {
+export default function SignUpPage() {
   return (
-    <>
-      {/* <Image src={img} alt="Sign up" width={"100vw"} height={"100vh"} /> */}
-      <HomePage />
-    </>
+    <SignUp />
   );
 }
