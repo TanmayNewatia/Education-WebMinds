@@ -35,3 +35,32 @@
     z-index: 50;
 }
 
+.heartbtn {
+    background-color: rgba(255,255,255,0.8);
+}
+
+.coursecard {
+    background: url("../../public/courses.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.coursecard_content {
+    backdrop-filter: blur(5px);
+    background-color: rgba(255,255,255,0.1);
+}
+
+.interviewcard {
+    background: url("../../public/interview.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.interviewcard_content {
+    backdrop-filter: blur(5px);
+    background-color: rgba(255,255,255,0.1);
+}
+
+

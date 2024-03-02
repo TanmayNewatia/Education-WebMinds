@@ -5,8 +5,10 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import CourseCard from './homecards/CourseCard';
+import InterviewCard from './homecards/InterviewCard';
 
-export default function Carousel({ height }) {
+export default function Carousel({ height, section }) {
     return (
         <div className='carousel' style={{ height: `${height}%` }}>
             <Swiper
@@ -23,15 +25,20 @@ export default function Carousel({ height }) {
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
             >
-                <SwiperSlide>Slide 1</SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide>
-                <SwiperSlide>Slide 5</SwiperSlide>
-                <SwiperSlide>Slide 6</SwiperSlide>
-                <SwiperSlide>Slide 7</SwiperSlide>
-                <SwiperSlide>Slide 8</SwiperSlide>
-                <SwiperSlide>Slide 9</SwiperSlide>
+                {(section === "course") ?
+                    <>
+                        <SwiperSlide><CourseCard data={""} /><CourseCard data={""} /></SwiperSlide>
+                        <SwiperSlide><CourseCard data={""} /><CourseCard data={""} /></SwiperSlide>
+                        <SwiperSlide><CourseCard data={""} /><CourseCard data={""} /></SwiperSlide>
+                        <SwiperSlide><CourseCard data={""} /><CourseCard data={""} /></SwiperSlide>
+                    </>
+                    :
+                    <>
+                        <SwiperSlide><InterviewCard data={""} /><InterviewCard data={""} /></SwiperSlide>
+                        <SwiperSlide><InterviewCard data={""} /><InterviewCard data={""} /></SwiperSlide>
+                        <SwiperSlide><InterviewCard data={""} /><InterviewCard data={""} /></SwiperSlide>
+                        <SwiperSlide><InterviewCard data={""} /><InterviewCard data={""} /></SwiperSlide>
+                    </>}
             </Swiper>
         </div>
     );

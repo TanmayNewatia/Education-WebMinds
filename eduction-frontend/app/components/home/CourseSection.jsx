@@ -5,7 +5,7 @@ export default function CourseSection() {
     return (
         <div className="course h-screen w-screen">
             <ProgressSection />
-            <Carousel height="45"/>
+            <Carousel height="45" section="course"/>
         </div>
     )
 }
