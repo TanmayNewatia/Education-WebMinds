@@ -2,13 +2,10 @@
 
 import Image from "next/image";
 import img from "../../public/signup.svg";
-import Navbar from "../components/home/nav/Navbar";
-import HomePage from "../components/home/HomePage";
+import DiscussionPage from "../components/discussion/DiscussionPage";
 
 export default function Profile() {
   return (
-    <>
-      <HomePage />
-    </>
+    <DiscussionPage />
   );
 }

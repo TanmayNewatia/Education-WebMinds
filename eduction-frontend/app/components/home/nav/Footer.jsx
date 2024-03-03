@@ -21,13 +21,13 @@ export default function Footer() {
             <></> :
             < footer className={styles.footer_container} >
                 <div>
-                    <Image src={logo} alt="logo" width={"80vw"} height={"50px"} />
+                    <Image src={logo} alt="logo" style={{ margin: "0 auto !important" }} width={"80vw"} height={"50px"} />
                     <h2 className="text-7xl text-white text-center">Join the Community!</h2>
                 </div>
                 <div>
                     <p className="text-xl text-white text-center">Subscribe to The Education to receive monthly tips,offers & more</p>
                     <div className="h-[200px] w-11/12 mx-auto bg-white flex justify-evenly flex-col items-center my-5 p-5 rounded-3xl">
-                        <div className="w-6/12 flex justify-center border-black border-[1px] rounded-full ">
+                        <div className="w-8/12 flex justify-center border-black border-[1px] rounded-full ">
                             {footList}
                         </div>
                         <Image src={divider} alt="divider" width={"80vw"} height={"50px"} />
