@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import pic1 from "../../../public/discussionuser1.svg";
@@ -28,8 +30,8 @@ export default function DiscussionCard({ user, text }) {
             <Image src={data[user]["img"]} alt="user" width={120} height={120} />
             <div className="w-10/12">
                 <h2 className="text-3xl">{data[user]["name"]}</h2>
-                <span className="text-xl">{(text) ? text : ""}</span>
+                <p className="text-xl">{(text) ? text : ""}</p>
             </div>
-        </div >
+        </div>
     )
 }

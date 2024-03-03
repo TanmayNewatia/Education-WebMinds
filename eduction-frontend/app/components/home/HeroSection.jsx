@@ -15,8 +15,8 @@ export default function HeroSection() {
                 </div>
                 <div className="w-9/12 mx-auto flex justify-between items-center">
                     <h3 className="text-4xl">Learn . Implement . Repeat</h3>
-                    <button className={"text-xl rounded-3xl w-3/12 border-2 border-white px-4 py-5 "}>
-                        <Link href={`/${"home"}`}>
+                    <button className={"text-xl rounded-3xl w-3/12 border-2 border-white px-4 py-5 hover:text-black hover:bg-white transition-all"}>
+                        <Link href={`/${"courseprogress"}`}>
                             Data Structure & Algorithm
                         </Link>
                     </button>

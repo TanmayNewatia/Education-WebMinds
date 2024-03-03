@@ -1,3 +1,5 @@
+'use client'
+
 import streak from "../../../public/streak.svg";
 import contest from "../../../public/contest.svg";
 import performer from "../../../public/performer.svg";

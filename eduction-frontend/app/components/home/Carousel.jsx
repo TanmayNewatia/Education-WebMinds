@@ -27,10 +27,10 @@ export default function Carousel({ height, section }) {
             >
                 {(section === "course") ?
                     <>
-                        <SwiperSlide><CourseCard data={""} /><CourseCard data={""} /></SwiperSlide>
-                        <SwiperSlide><CourseCard data={""} /><CourseCard data={""} /></SwiperSlide>
-                        <SwiperSlide><CourseCard data={""} /><CourseCard data={""} /></SwiperSlide>
-                        <SwiperSlide><CourseCard data={""} /><CourseCard data={""} /></SwiperSlide>
+                        <SwiperSlide><CourseCard data={""} width={"w-[45vw]"} /><CourseCard data={""} width={"w-[45vw]"} /></SwiperSlide>
+                        <SwiperSlide><CourseCard data={""} width={"w-[45vw]"} /><CourseCard data={""} width={"w-[45vw]"} /></SwiperSlide>
+                        <SwiperSlide><CourseCard data={""} width={"w-[45vw]"} /><CourseCard data={""} width={"w-[45vw]"} /></SwiperSlide>
+                        <SwiperSlide><CourseCard data={""} width={"w-[45vw]"} /><CourseCard data={""} width={"w-[45vw]"} /></SwiperSlide>
                     </>
                     :
                     <>

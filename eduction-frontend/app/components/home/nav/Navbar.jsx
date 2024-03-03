@@ -12,13 +12,13 @@ import { useState, useEffect } from "react";
 export default function Navbar() {
     const path = usePathname();
     console.log(path);
-    const [theme, setTheme] = useState(" text-white border-white hover:bg-white hover:text-black");
+    const [theme, setTheme] = useState(" text-white border-white hover:bg-white hover:text-black transition-all");
     const [bg, setBg] = useState();
     const [ourlogo, setOurLogo] = useState([logo]);
     useEffect(() => {
         console.log(path);
-        if (path === "/profile") {
-            setTheme(" text-black border-black hover:bg-black hover:text-white");
+        if (path === "/profile" || path === "/catalog") {
+            setTheme(" text-black border-black hover:bg-black hover:text-white transition-all");
             setOurLogo([logodark]);
             setBg(" bg-white");
         }
