@@ -24,7 +24,7 @@ export default function DiscussionCard({ user, text }) {
 
     useEffect(() => {
         setBg(backgroundColors[Math.floor(Math.random() * backgroundColors.length)]);
-    }, [bg])
+    }, [bg, backgroundColors])
     return (
         <div className={"flex gap-8 items-center p-4 border-1 border-black rounded-lg " + bg} >
             <Image src={data[user]["img"]} alt="user" width={120} height={120} />

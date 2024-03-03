@@ -9,7 +9,7 @@ export default function CourseHeroSection() {
         <div className={coursestyles.coursehero_container}>
             <div className="w-[90%] mx-auto text-white flex h-[85%] flex-col justify-end gap-5">
                 <h1 className={"text-[100px] leading-none !m-0 !p-0"}>Data Structure & Algorithm </h1>
-                <p className="text-3xl">"Welcome to our dynamic e-learning platform, your gateway to knowledge."</p>
+                <p className="text-3xl">&quot;Welcome to our dynamic e-learning platform, your gateway to knowledge.&quot;</p>
             </div>
         </div>
     )

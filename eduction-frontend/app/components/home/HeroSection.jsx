@@ -11,7 +11,7 @@ export default function HeroSection() {
                 <div className={homestyles.hero_content}>
                     <p className="text-4xl">Online</p>
                     <h1 className={"text-[300px] leading-none !m-0 !p-0"}>Eduction</h1>
-                    <p className="text-right text-2xl">"Welcome to our dynamic e-learning platform, your gateway to knowledge."</p>
+                    <p className="text-right text-2xl">&quot;Welcome to our dynamic e-learning platform, your gateway to knowledge.&quot;</p>
                 </div>
                 <div className="w-9/12 mx-auto flex justify-between items-center">
                     <h3 className="text-4xl">Learn . Implement . Repeat</h3>

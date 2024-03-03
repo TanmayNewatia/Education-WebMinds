@@ -17,7 +17,7 @@ export default function BadgeCard({ data }) {
         else if (data === "performer") {
             setImg(performer);
         }
-    }, [1000])
+    }, [data, img])
     return (
         <div className="w-[300px] h-[300px] flex justify-center items-center flex-col gap-2">
             <div className="bg-[#0F3941] !w-[220px] !h-[220px] rounded-full flex justify-center items-center">
