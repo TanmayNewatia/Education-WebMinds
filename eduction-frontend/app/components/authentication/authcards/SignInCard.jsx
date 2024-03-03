@@ -5,6 +5,8 @@ import Link from "next/link";
 import SocialLoginButton from "../SocialLoginButton";
 import { ErrorMessage } from "@hookform/error-message";
 import { UserAuth } from "@/app/context/AuthContext";
+import { useRouter } from 'next/navigation';
+import toast, { Toaster } from 'react-hot-toast';
 
 const poppins = Poppins({ subsets: ["latin"], weight: '400' });
 
@@ -20,7 +22,7 @@ function SignInForm({ onSubmit }) {
             <label className="!text-[14px]">Enter your username or email address
                 <input
                     placeholder="Username or email address"
-                    {...register("loginID", { required: "This field is required", pattern: { value: /^[a-zA-Z0-9@]+$/, message: "Invalid username or email ID" } })}
+                    {...register("loginID", { required: "This field is required", pattern: { value: /^[a-zA-Z0-9@.]+$/, message: "Invalid username or email ID" } })}
                     className="p-2 py-3 my-2 w-full rounded-lg !text-[12px] text-white bg-[#232222] outline-0 focus-visible:border-[#98DBAF] focus-visible:border-1 border-1 border-white" />
                 <ErrorMessage errors={errors} name="loginID" as="span" style={{ color: "red", fontSize: "11px" }} />
             </label>
@@ -38,12 +40,16 @@ function SignInForm({ onSubmit }) {
     )
 }
 export default function SignInCard() {
-    const onSubmit = async (data) => {
+    const router = useRouter();
+    const onSubmit = async (data, e) => {
+        e.target.reset();
         try {
             await signInUser(data.loginID, data.password);
+            toast.success('Login Successful!');
+            router.push("/profile");
         }
         catch (error) {
-            console.log(error);
+            toast.error('Invalid Credential');
         }
     }
     const { user, googleSignIn, logOut, appleSignIn, facebookSignIn, signInUser } = UserAuth();
@@ -74,15 +80,6 @@ export default function SignInCard() {
         }
     }
 
-    // const signOut = async () => {
-    //     try {
-    //         await logOut();
-    //     }
-    //     catch (error) {
-    //         console.log(error);
-    //     }
-    // }
-
     return (
         <main className={"flex justify-evenly flex-col min-h-[70vh] p-8 rounded-3xl max-w-[500px] text-white min-w-[300px] w-1/2 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] " + poppins.className + " " + styles.signin_form_container}>
             <div>
@@ -92,6 +89,7 @@ export default function SignInCard() {
             <SocialLoginButton data={"Sign in"} func={[handleSignInGoogle, handleSignInApple, handleSignInFacebook]} />
             <SignInForm onSubmit={onSubmit} />
             <p className="!text-[13px] text-center"><span className="opacity-70">No Account? </span><span className="font-bold"><Link href="/signup">Sign Up</Link></span></p>
+            <Toaster />
         </main>
     )
 }

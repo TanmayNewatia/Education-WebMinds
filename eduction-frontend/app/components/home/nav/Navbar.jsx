@@ -7,8 +7,20 @@ import logo from "../../../../public/logo.svg";
 import logodark from "../../../../public/logodark.svg";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import { UserAuth } from "@/app/context/AuthContext";
+import { Tooltip, Button } from "@nextui-org/react";
+import Link from "next/link";
 
 export default function Navbar() {
+    const { user, logOut } = UserAuth();
+    const signOut = async () => {
+        try {
+            await logOut();
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
     const path = usePathname();
     const [theme, setTheme] = useState(" text-white border-white hover:bg-white hover:text-black transition-all");
     const [bg, setBg] = useState();
@@ -20,9 +32,13 @@ export default function Navbar() {
             setBg(" bg-white");
         }
         else if (path === "/discussion") {
+            setTheme(" text-white border-white hover:bg-white hover:text-black transition-all");
+            setOurLogo(logo);
             setBg(" bg-[#0F3941]");
         }
         else {
+            setTheme(" text-white border-white hover:bg-white hover:text-black transition-all");
+            setOurLogo(logo);
             setBg(null);
         }
     }, [theme, bg, ourlogo, path])
@@ -40,8 +56,22 @@ export default function Navbar() {
                     {navList}
                 </div>
                 <div className="flex items-center w-4/12 justify-end">
-                    <NavbarButton data={"Sign In"} theme={theme} path={path} />
-                    <button className={"rounded-full border-2 text-3xl p-3" + theme}><IoPerson /></button>
+                    {(!user) ?
+                        <NavbarButton data={"Sign In"} theme={theme} path={path} />
+                        :
+                        <Tooltip
+                            content={
+                                <div className="flex fle-col gap-4 px-1 py-2">
+                                    <Link href="/profile" className="text-xl text-center">Profile</Link>
+                                    <div onClick={signOut} className="text-xl text-center">Logout</div>
+                                </div>
+                            }
+                        >
+                            <button className={"rounded-full border-2 text-3xl p-3" + theme}>
+                                <IoPerson />
+                            </button>
+                        </Tooltip>
+                    }
                 </div>
             </div>
         </header>

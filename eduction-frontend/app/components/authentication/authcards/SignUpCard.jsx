@@ -5,6 +5,8 @@ import Link from "next/link";
 import SocialLoginButton from "../SocialLoginButton";
 import { ErrorMessage } from "@hookform/error-message";
 import { UserAuth } from "@/app/context/AuthContext";
+import { useRouter } from 'next/navigation';
+import toast, { Toaster } from 'react-hot-toast';
 
 const poppins = Poppins({ subsets: ["latin"], weight: '400' });
 
@@ -56,58 +58,68 @@ function SignUpForm({ onSubmit }) {
     )
 }
 export default function SignUpCard() {
-    const onSubmit = async (data) => {
+    const router = useRouter();
+    const onSubmit = async (data, e) => {
+        e.target.reset();
+        // const email = await fetch(`https://disposable.debounce.io/?email=${data.email}`);
+        // if (email) {
         try {
             await createUser(data.email, data.password);
+            toast.success('Login Successful!');
+            router.push("/profile");
         }
         catch (error) {
             console.log(error);
+            toast.error('Invalid Credential');
         }
-    }
-    const { user, googleSignIn, logOut, appleSignIn, facebookSignIn, createUser } = UserAuth();
-    const handleSignInGoogle = async () => {
-        try {
-            await googleSignIn();
-        }
-        catch (error) {
-            console.log(error);
-        }
-    }
-
-    const handleSignInApple = async () => {
-        try {
-            await appleSignIn();
-        }
-        catch (error) {
-            console.log(error);
-        }
-    }
-
-    const handleSignInFacebook = async () => {
-        try {
-            await facebookSignIn();
-        }
-        catch (error) {
-            console.log(error);
-        }
-    }
-    // const signOut = async () => {
-    //     try {
-    //         await logOut();
-    //     }
-    //     catch (error) {
-    //         console.log(error);
-    //     }
+    // else {
+    //     toast.error('Temp Mail Not Allowed');
     // }
-    return (
-        <main className={"flex justify-evenly flex-col min-h-[70vh] p-8 rounded-3xl max-w-[500px] text-white min-w-[350px] w-1/2 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] my-8 " + poppins.className + " " + styles.signup_form_container}>
-            <div className="mb-8">
-                <p className="font-semibold text-lg">Welcome to Education</p>
-                <h1 className="font-bold text-4xl">Sign up</h1>
-            </div>
-            <SignUpForm onSubmit={onSubmit} />
-            <SocialLoginButton data={"Sign up"} func={[handleSignInGoogle, handleSignInApple, handleSignInFacebook]} />
-            <p className="!text-[13px] text-center"><span className="opacity-70">Have an Account? </span><span className="font-bold"><Link href="/signin">Sign In</Link></span></p>
-        </main>
-    )
+}
+const { user, googleSignIn, logOut, appleSignIn, facebookSignIn, createUser } = UserAuth();
+const handleSignInGoogle = async () => {
+    try {
+        await googleSignIn();
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+const handleSignInApple = async () => {
+    try {
+        await appleSignIn();
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+const handleSignInFacebook = async () => {
+    try {
+        await facebookSignIn();
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+// const signOut = async () => {
+//     try {
+//         await logOut();
+//     }
+//     catch (error) {
+//         console.log(error);
+//     }
+// }
+return (
+    <main className={"flex justify-evenly flex-col min-h-[70vh] p-8 rounded-3xl max-w-[500px] text-white min-w-[350px] w-1/2 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] my-8 " + poppins.className + " " + styles.signup_form_container}>
+        <div className="mb-8">
+            <p className="font-semibold text-lg">Welcome to Education</p>
+            <h1 className="font-bold text-4xl">Sign up</h1>
+        </div>
+        <SignUpForm onSubmit={onSubmit} />
+        <SocialLoginButton data={"Sign up"} func={[handleSignInGoogle, handleSignInApple, handleSignInFacebook]} />
+        <p className="!text-[13px] text-center"><span className="opacity-70">Have an Account? </span><span className="font-bold"><Link href="/signin">Sign In</Link></span></p>
+    </main>
+)
 }

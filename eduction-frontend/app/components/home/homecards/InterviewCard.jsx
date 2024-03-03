@@ -14,9 +14,9 @@ export default function Interview({ data }) {
             </div>
             <div className={"flex justify-between items-center w-11/12 p-4 h-[40%] mx-auto rounded-lg " + styles.interviewcard_content}>
                 <div>
-                    <h4 className="text-xl">Data Analysist Interview Full Course</h4>
-                    <h5 className="text-lg">Self Paced</h5>
-                    <h4 className="text-xl">₹1200.00</h4>
+                    <h4 className="text-2xl">{data["courseName"]}</h4>
+                    <h5 className="text-xl">{data["courseType"]}</h5>
+                    <h4 className="text-2xl">{data["price"]}</h4>
                 </div>
                 <FaCircleArrowRight className="!text-4xl hover:!text-7xl !text-black transition-all" />
             </div>

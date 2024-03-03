@@ -3,29 +3,38 @@
 import { useContext, createContext, useEffect, useState } from "react";
 import { signInWithPopup, signOut, onAuthStateChanged, GoogleAuthProvider, FacebookAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, OAuthProvider } from "firebase/auth";
 import { auth } from "../firebase";
+import { useRouter } from "next/navigation";
 
 const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-
+    const router = useRouter();
     const googleSignIn = () => {
         const googleprovider = new GoogleAuthProvider();
-        signInWithPopup(auth, googleprovider);
+        signInWithPopup(auth, googleprovider)
+            .then(() => { router.push("/profile") })
     }
 
     const appleSignIn = () => {
         const appleprovider = new OAuthProvider('apple.com');
         signInWithPopup(auth, appleprovider);
     }
-    
+
     const facebookSignIn = () => {
         const facebookprovider = new FacebookAuthProvider();
         signInWithPopup(auth, facebookprovider);
     }
 
     const createUser = (email, password) => {
-        createUserWithEmailAndPassword(auth, email, password);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                setUser(userCredential.user);
+            })
+            .catch((error) => {
+                console.log(error.code);
+                console.log(error.message);
+            });
     }
 
     const signInUser = (email, password) => {
