@@ -17,7 +17,7 @@ export default function Navbar() {
     const [ourlogo, setOurLogo] = useState([logo]);
     useEffect(() => {
         console.log(path);
-        if (path === "/profile" || path === "/catalog") {
+        if (path === "/profile" || path === "/catalog" || path === "/courses") {
             setTheme(" text-black border-black hover:bg-black hover:text-white transition-all");
             setOurLogo([logodark]);
             setBg(" bg-white");
