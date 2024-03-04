@@ -1,6 +1,7 @@
 import React from "react";
 import { Progress } from "@nextui-org/react";
 import { FaCircleArrowRight } from "react-icons/fa6";
+import Link from "next/link";
 
 export default function ProgressBar() {
     const [value, setValue] = React.useState(41);
@@ -27,7 +28,7 @@ export default function ProgressBar() {
                     indicator: "!bg-[#124752]",
                     label: "",
                 }} />
-            <FaCircleArrowRight className="!text-4xl hover:!text-5xl !text-black transition-all" />
+            <Link href="/courseprogress"><FaCircleArrowRight className="!text-4xl hover:!text-5xl !text-black transition-all" /></Link>
         </div>
     );
 }
