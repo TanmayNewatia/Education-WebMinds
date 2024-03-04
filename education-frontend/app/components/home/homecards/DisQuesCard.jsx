@@ -1,4 +1,5 @@
 import { BsArrowDownRightCircle } from "react-icons/bs";
+import Link from "next/link";
 
 export default function DisQuesCard({ data, link }) {
     return (
@@ -7,7 +8,7 @@ export default function DisQuesCard({ data, link }) {
                 <h2 className="text-3xl">{data}</h2>
                 <span>{(link) ? "Opened By" : ""}</span>
             </div>
-            <BsArrowDownRightCircle className="text-6xl hover:-rotate-90 transition-all" />
+            <Link href="/discussion"><BsArrowDownRightCircle className="text-6xl hover:-rotate-90 transition-all" /></Link>
         </div>
     )
 }
